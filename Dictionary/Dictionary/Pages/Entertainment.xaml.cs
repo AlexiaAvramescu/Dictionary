@@ -13,14 +13,14 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace Dictionary
+namespace Dictionary.Pages
 {
     /// <summary>
-    /// Interaction logic for Admin.xaml
+    /// Interaction logic for Entertainment.xaml
     /// </summary>
-    public partial class Admin : Page
+    public partial class Entertainment : Page
     {
-        public Admin()
+        public Entertainment()
         {
             InitializeComponent();
         }

@@ -4,12 +4,10 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Dictionary"
+        xmlns:Directory="clr-namespace:Dictionary"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <TextBlock Text="Dictionary" FontSize="30" HorizontalAlignment="Center" Margin="0,98,0,-99"/>
-        <Button Name="btnAdmin" Content="Admin Mode" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="40" Margin="130,0,0,0" Click="AdminBtnClicked"/>
-        <Button Name="btnSearch" Content="Search Mode" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="40" Margin="515,0,0,0" RenderTransformOrigin="0.389,0.569" Click="SearchBtnClicked"/>
-        <Button Name="btnEntertain" Content="Entertainment Mode" HorizontalAlignment="Center" VerticalAlignment="Center" Width="150" Height="40" Click="EntertainBtnClicked"/>
+    <Grid Background="Black">
+        <Frame x:Name="MainFrame" Source="/Pages/Main.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>
 </Window>
