@@ -19,18 +19,16 @@
         <StackPanel Orientation="Horizontal">
             <StackPanel Margin="56,130,120,65">
                 <TextBlock Text="Word:" Style="{StaticResource GlobalTextBlockStyle}"/>
-                <TextBox Width="200" Height="30"/>
+                <TextBox Name="value"  Width="200" Height="30"/>
 
                 <TextBlock Text="Description:" Style="{StaticResource GlobalTextBlockStyle}"/>
-                <TextBox Width="200" Height="100" TextChanged="DescriptionTextBox_TextChanged"/>
+                <TextBox Name="description" Width="200" Height="100"/>
                 <Border Height="10"/>
 
                 <StackPanel Orientation="Horizontal">
                     <TextBlock Text="Category:" Style="{StaticResource GlobalTextBlockStyle}"/>
                     <Border Width="10"/>
-                    <ComboBox Width="156"/>
-                    <Border Width="20"/>
-                    <Button Content="+" Width="30"/>
+                    <ComboBox Name="category" Width="156" IsEditable="True" Text="{Binding Category,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Categories}"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <Button Content="Select Image" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Click="SelectImgBtn_Click"/>
@@ -41,8 +39,7 @@
             <StackPanel Margin="0,130,120,65">
                 <TextBlock Text="Search for word:" Style="{StaticResource GlobalTextBlockStyle}"/>
                 <TextBox Width="200" Height="30" Background="White" BorderThickness="1"/>
-                <ListView>
-                </ListView>
+                <ListView ItemsSource="{Binding Words}" DisplayMemberPath="Value" SelectionChanged="ListView_SelectionChanged"/>
             </StackPanel>
         </StackPanel>
 

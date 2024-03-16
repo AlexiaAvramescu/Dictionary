@@ -32,7 +32,7 @@ namespace Dictionary.Pages
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Search());
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Search(this.DataContext));
         }
 
         private void btnEntertain_Click(object sender, RoutedEventArgs e)

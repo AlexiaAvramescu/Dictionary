@@ -13,27 +13,58 @@ namespace Dictionary
 
         private String _value;
 
-        private String Value
-        { get { return _value; }
-          set { _value = value; }
+        public String Value
+        {
+            get { return _value; }
+            set 
+            { 
+                _value = value;
+                NotifyPropertyChanged("Value");
+            }
         }
 
         private String _description;
 
-        private String Description
+        public String Description
         {
             get { return _description; }
-            set { _description = value; }
+            set 
+            { 
+                _description = value; 
+                NotifyPropertyChanged("Description");
+
+            }
         }
 
         private String _imagePath;
 
-        private String ImagePath
+        public String ImagePath
         {
             get { return _imagePath; }
-            set { _imagePath = value; }
+            set 
+            { 
+                _imagePath = value; 
+                NotifyPropertyChanged("ImagePath");
+            }
+        }
+
+        private String _category;
+
+        public String Category
+        {
+            get { return _category; }
+            set 
+            { 
+                _category = value;
+                NotifyPropertyChanged("Category");
+            }
         }
 
         public event PropertyChangedEventHandler PropertyChanged;
+
+        public void NotifyPropertyChanged(string propertyName)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+        }
     }
 }

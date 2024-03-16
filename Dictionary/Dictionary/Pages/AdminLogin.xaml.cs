@@ -28,7 +28,7 @@ namespace Dictionary.Pages
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminView());
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminView(this.DataContext));
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

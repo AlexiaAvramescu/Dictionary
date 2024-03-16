@@ -14,7 +14,7 @@
 
         <TextBlock Text="Search for word" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0"/>
         
-        <StackPanel Margin="238,148,238,93">
+        <StackPanel Margin="76,151,400,90">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Category:" Style="{StaticResource GlobalTextBlockStyle}"/>
                 <Border Width="10"/>
@@ -24,10 +24,8 @@
 
             <TextBlock Text="Search for word:" Style="{StaticResource GlobalTextBlockStyle}"/>
             <TextBox Height="30" Background="White" BorderThickness="1"/>
-            <ListView>
-            </ListView>
+            <ListView ItemsSource="{Binding Words}"/>
         </StackPanel>
-
 
     </Grid>
 </Page>

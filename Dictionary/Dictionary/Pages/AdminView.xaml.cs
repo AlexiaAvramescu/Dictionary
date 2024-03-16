@@ -20,14 +20,10 @@ namespace Dictionary.Pages
     /// </summary>
     public partial class AdminView : Page
     {
-        public AdminView()
+        public AdminView(object dContext)
         {
             InitializeComponent();
-        }
-
-        private void DescriptionTextBox_TextChanged(object sender, TextChangedEventArgs e)
-        {
-
+            DataContext = dContext;
         }
 
         private void SelectImgBtn_Click(object sender, RoutedEventArgs e)
@@ -37,12 +33,18 @@ namespace Dictionary.Pages
 
         private void AddWordBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            if (!(DataContext as WordCollection).AddWord(value.Text, description.Text, category.Text, "imgPath"))
+            { MessageBox.Show("Word, desctription, or category field empty."); }
         }
 
         private void BackArrowBtn_Click(object sender, RoutedEventArgs e)
         {
             ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (DataContext as WordCollection).SelectedWord = (sender as ListBox).SelectedItem as Word;
         }
     }
 }

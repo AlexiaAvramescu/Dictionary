@@ -8,6 +8,9 @@
       mc:Ignorable="d" 
       d:DesignHeight="450" d:DesignWidth="800"
       Title="Main">
+    <Page.DataContext>
+        <main:WordCollection/>
+    </Page.DataContext>
     <Grid Background="White">
         <TextBlock Text="Dictionary" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" Margin="0,98,0,-99"/>
         <Button Name="btnAdmin" Content="Admin Mode" HorizontalAlignment="Left" VerticalAlignment="Center" Width="150" Height="40" Margin="130,0,0,0" Click="btnAdmin_Click"/>
