@@ -42,7 +42,7 @@ namespace Dictionary.Pages
 
         private void BackArrowBtn_Click(object sender, RoutedEventArgs e)
         {
-
+            ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
         }
     }
 }

@@ -10,9 +10,7 @@
       Title="AdminView">
 
     <Grid Background= "White">
-        <!-- Purple color with more blue -->
 
-        <!-- Back Button -->
         <Button Content="&#x2190;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,31,0,0"
                 Width="30" Height="30" FontSize="16" Click="BackArrowBtn_Click"/>
 
@@ -31,6 +29,8 @@
                     <TextBlock Text="Category:" Style="{StaticResource GlobalTextBlockStyle}"/>
                     <Border Width="10"/>
                     <ComboBox Width="156"/>
+                    <Border Width="20"/>
+                    <Button Content="+" Width="30"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" Margin="0,10,0,0">
                     <Button Content="Select Image" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" Click="SelectImgBtn_Click"/>

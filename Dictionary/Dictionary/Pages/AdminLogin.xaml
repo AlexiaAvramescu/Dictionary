@@ -9,23 +9,28 @@
       Title="AdminLogin">
 
     <Grid Background="White">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="Auto"/>
-        </Grid.RowDefinitions>
 
-        <TextBlock Text="Admin Login" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" Margin="0,133,0,-124" Grid.Row="3"/>
+        <Button Content="&#x2190;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,31,0,0"
+    Width="30" Height="30" FontSize="16" Click="button_Click"/>
+        <StackPanel HorizontalAlignment="Left" VerticalAlignment="Top" Height="189" Width="264" Margin="240,154,0,0">
+            <TextBlock Text="Admin Login" HorizontalAlignment="Center" Style="{StaticResource HeaderTextBlockStyle}" Grid.Row="3"/>
+            <Border Height="30"/>
 
-        <TextBlock Text="Username:" Grid.Row="3" Margin="220,198,-180,-175"/>
-        <TextBox x:Name="UsernameTextBox" Grid.Row="3" Margin="300,197,300,-175" Width="200"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Username:" Height="13" />
+                <Border Width="10"/>
+                <TextBox x:Name="UsernameTextBox" Width="200"/>
+            </StackPanel>
+            <Border Height="10"/>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock Text="Password:" />
+                <Border Width="13"/>
+                <PasswordBox x:Name="PasswordBox"  Width="200"/>
+            </StackPanel>
+            <Border Height="10"/>
 
-        <!-- Password -->
-        <TextBlock Text="Password:" Grid.Row="3" Margin="220,225,-180,-203"/>
-        <PasswordBox x:Name="PasswordBox" Grid.Row="3" Margin="300,225,300,-203" Width="200"/>
+            <Button Content="Login" Width="100" HorizontalAlignment="Center" Click="loginBtn_Click"/>
+        </StackPanel>
 
-
-        <Button Content="Login" Grid.Row="3" Margin="0,260,0,-234" Width="100" HorizontalAlignment="Center" Click="loginBtn_Click"/>
     </Grid>
 </Page>

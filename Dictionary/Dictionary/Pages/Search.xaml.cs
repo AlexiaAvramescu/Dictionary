@@ -24,5 +24,10 @@ namespace Dictionary.Pages
         {
             InitializeComponent();
         }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
+        }
     }
 }

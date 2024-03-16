@@ -20,14 +20,20 @@ namespace Dictionary.Pages
     /// </summary>
     public partial class AdminLogin : Page
     {
-        public AdminLogin()
+        public AdminLogin(object dContext)
         {
             InitializeComponent();
+            DataContext = dContext;
         }
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
             ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminView());
+        }
+
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
         }
     }
 }

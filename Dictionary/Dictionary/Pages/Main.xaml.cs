@@ -27,7 +27,7 @@ namespace Dictionary.Pages
 
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin());
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin(this.DataContext));
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
@@ -37,7 +37,7 @@ namespace Dictionary.Pages
 
         private void btnEntertain_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin());
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin(this.DataContext));
         }
     }
 }
