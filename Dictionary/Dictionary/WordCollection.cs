@@ -27,9 +27,8 @@ namespace Dictionary
         }
         public bool AddWord(string word, string description, string category, string imgPath)
         {
-            if (ValidateInput(word) && ValidateInput(description) && ValidateInput(category))
+            if (ValidateInput(word) && ValidateInput(description) && ValidateInput(category) && Words.FirstOrDefault(item=> item.Equals(word)) == null)
             {
-                object ceav = Categories.FirstOrDefault(item => item.Equals(category));
                 if (Categories.FirstOrDefault(item => item.Equals(category)) == null)
                 {
                     AddCategory(category);
@@ -49,7 +48,7 @@ namespace Dictionary
             }
         }
 
-        public void RemoveWord(string word) { }
+        public void RemoveWord() { }
 
         public void UpdateWord(string description, string category, string imgPath) 
         {

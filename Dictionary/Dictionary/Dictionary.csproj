@@ -55,6 +55,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Pages\UpdateWordWindow.xaml.cs">
+      <DependentUpon>UpdateWordWindow.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Word.cs" />
     <Compile Include="WordCollection.cs" />
     <Page Include="MainWindow.xaml">
@@ -86,6 +89,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Pages\Search.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Pages\UpdateWordWindow.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -130,6 +137,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Images\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

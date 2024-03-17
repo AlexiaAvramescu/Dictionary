@@ -66,5 +66,10 @@ namespace Dictionary
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public bool Equals(string value)
+        {
+            return value == this.Value;
+        }
     }
 }

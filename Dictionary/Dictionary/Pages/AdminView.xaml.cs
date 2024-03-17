@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -26,15 +27,33 @@ namespace Dictionary.Pages
             DataContext = dContext;
         }
 
+        private String ImageSelected {  get; set; }
+
         private void SelectImgBtn_Click(object sender, RoutedEventArgs e)
         {
+            string projectFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
 
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = projectFolderPath;
+
+            openFileDialog.DefaultExt = ".jpg";
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif";
+
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                ImageSelected = openFileDialog.FileName;
+            }
         }
 
         private void AddWordBtn_Click(object sender, RoutedEventArgs e)
         {
-            if (!(DataContext as WordCollection).AddWord(value.Text, description.Text, category.Text, "imgPath"))
+            if (!(DataContext as WordCollection).AddWord(value.Text, description.Text, category.Text, ImageSelected))
             { MessageBox.Show("Word, desctription, or category field empty."); }
+            value.Clear();
+            description.Clear();
         }
 
         private void BackArrowBtn_Click(object sender, RoutedEventArgs e)
@@ -45,6 +64,12 @@ namespace Dictionary.Pages
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             (DataContext as WordCollection).SelectedWord = (sender as ListBox).SelectedItem as Word;
+        }
+
+        private void ListView_Selected(object sender, RoutedEventArgs e)
+        {
+            UpdateWordWindow updateWindow = new UpdateWordWindow(DataContext);
+            updateWindow.ShowDialog();
         }
     }
 }
