@@ -14,6 +14,7 @@ namespace Dictionary
             Words = new ObservableCollection<Word>();
             Categories = new ObservableCollection<String>();
             SearchedWords = new ObservableCollection<Word>();
+            _defaultImg = "..\\..\\Image\\default-image.jpg";
         }
 
         public ObservableCollection<Word> Words { get; set; }
@@ -25,6 +26,8 @@ namespace Dictionary
         public ObservableCollection<Word> SearchedWords { get; set; }
         public Word SelectedWord { get; set; }
 
+        private string _defaultImg;
+
 
         private bool ValidateInput(string word)
         {
@@ -32,6 +35,8 @@ namespace Dictionary
         }
         public bool AddWord(string word, string description, string category, string imgPath)
         {
+            if (!ValidateInput(imgPath))
+                imgPath = _defaultImg;
             if (ValidateInput(word) && ValidateInput(description) && ValidateInput(category) && Words.FirstOrDefault(item => item.Equals(word)) == null)
             {
                 if (Categories.FirstOrDefault(item => item.Equals(category)) == null)

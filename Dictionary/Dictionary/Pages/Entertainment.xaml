@@ -15,7 +15,7 @@
 
         <StackPanel Margin="260,131,260,64">
             <TextBlock Text="{Binding WordToGuess.Description}" />
-            <Image Source="{Binding WordToGuess.ImagePath}" Height="150" Width="150"/>
+            <Image Source="..\..\Images\default-image.jpg" Height="150" Width="150"/>
             <TextBlock Text="Your guess:" Style="{StaticResource GlobalTextBlockStyle}"/>
             <TextBox />
             <Border Height="10"/>
