@@ -74,7 +74,7 @@ namespace Dictionary.Pages
 
         private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-
+            (DataContext as WordCollection).SeatchFor(searchBar.Text);
         }
     }
 }

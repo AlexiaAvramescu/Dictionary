@@ -23,21 +23,30 @@ namespace Dictionary.Pages
         public Main()
         {
             InitializeComponent();
+            AdminLoginPage = new AdminLogin(this.DataContext);
+            AdminViewPage = new AdminView(this.DataContext);
+            SearchPage = new Search(this.DataContext);
+            EntertainmentPage = new Entertainment(this.DataContext);
         }
+
+        private AdminLogin AdminLoginPage { get; set; }
+        private AdminView AdminViewPage { get; set; }
+        private Search SearchPage { get; set; }
+        private Entertainment EntertainmentPage { get; set; }
 
         private void btnAdmin_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin(this.DataContext));
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(AdminLoginPage);
         }
 
         private void btnSearch_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Search(this.DataContext));
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(SearchPage);
         }
 
         private void btnEntertain_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminLogin(this.DataContext));
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(EntertainmentPage);
         }
     }
 }

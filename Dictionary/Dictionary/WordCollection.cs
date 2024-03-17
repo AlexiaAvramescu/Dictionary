@@ -13,13 +13,16 @@ namespace Dictionary
         {
             Words = new ObservableCollection<Word>();
             Categories = new ObservableCollection<String>();
+            SearchedWords = new ObservableCollection<Word>();
         }
 
         public ObservableCollection<Word> Words { get; set; }
-        public ObservableCollection<String> Categories { get; set; }
-
+        public ObservableCollection<String> Categories
+        {
+            get;
+            set;
+        }
         public ObservableCollection<Word> SearchedWords { get; set; }
-
         public Word SelectedWord { get; set; }
 
 
@@ -29,7 +32,7 @@ namespace Dictionary
         }
         public bool AddWord(string word, string description, string category, string imgPath)
         {
-            if (ValidateInput(word) && ValidateInput(description) && ValidateInput(category) && Words.FirstOrDefault(item=> item.Equals(word)) == null)
+            if (ValidateInput(word) && ValidateInput(description) && ValidateInput(category) && Words.FirstOrDefault(item => item.Equals(word)) == null)
             {
                 if (Categories.FirstOrDefault(item => item.Equals(category)) == null)
                 {
@@ -55,9 +58,15 @@ namespace Dictionary
             return Words.Remove(SelectedWord);
         }
 
-        public void UpdateWord(string description, string category, string imgPath) 
+        public void SeatchFor(string word)
         {
-
+            if (!ValidateInput(word)) return;
+            SearchedWords.Clear();
+            var foundWords = Words.Where(item => item.Value.StartsWith(word, StringComparison.OrdinalIgnoreCase));
+            foreach (var item in foundWords)
+            {
+                SearchedWords.Add(item);
+            }
         }
     }
 }

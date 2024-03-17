@@ -20,9 +20,20 @@ namespace Dictionary.Pages
     /// </summary>
     public partial class Entertainment : Page
     {
-        public Entertainment()
+        public Entertainment(object dContext)
         {
             InitializeComponent();
+            DataContext = dContext;
+        }
+
+        private void goBackBtn_Click(object sender, RoutedEventArgs e)
+        {
+            ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
+        }
+
+        private void nextBtn_Click(object sender, RoutedEventArgs e)
+        {
+
         }
     }
 }

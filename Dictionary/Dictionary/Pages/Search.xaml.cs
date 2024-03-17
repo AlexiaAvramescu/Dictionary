@@ -31,5 +31,15 @@ namespace Dictionary.Pages
         {
             ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
         }
+
+        private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            (DataContext as WordCollection).SeatchFor(searchBar.Text);
+        }
+
+        private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            (DataContext as WordCollection).SelectedWord = (sender as ListBox).SelectedItem as Word;
+        }
     }
 }

@@ -8,7 +8,23 @@
       d:DesignHeight="500" d:DesignWidth="900"
       Title="Entertainment">
 
-    <Grid>
+    <Grid Background= "White">
+        <Button Content="&#x2190;" HorizontalAlignment="Left" VerticalAlignment="Top" Margin="34,31,0,0"
+        Width="30" Height="30" FontSize="16" Click="goBackBtn_Click"/>
+        <TextBlock Text="Guess the word!" Style="{StaticResource ResourceKey=HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0"/>
+
+        <StackPanel Margin="260,131,260,64">
+            <TextBlock Text="{Binding WordToGuess.Description}" />
+            <Image Source="{Binding WordToGuess.ImagePath}" Height="150" Width="150"/>
+            <TextBlock Text="Your guess:" Style="{StaticResource GlobalTextBlockStyle}"/>
+            <TextBox />
+            <Border Height="10"/>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
+                <Button Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" />
+                <Border Width="80"/>
+                <Button Content="Next" Width="120" Height="30" Click="nextBtn_Click"/>
+            </StackPanel>
+        </StackPanel>
 
     </Grid>
 </Page>

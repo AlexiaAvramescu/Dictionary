@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:Dictionary"
         xmlns:Directory="clr-namespace:Dictionary"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="500" Width="900">
     <Grid Background="Black">
         <Frame x:Name="MainFrame" Source="/Pages/Main.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

@@ -5,7 +5,7 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:Dictionary.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
+      d:DesignHeight="500" d:DesignWidth="900"
       Title="Search">
 
     <Grid Background= "White">
@@ -14,18 +14,27 @@
 
         <TextBlock Text="Search for word" Style="{StaticResource HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0"/>
         
-        <StackPanel Margin="76,151,400,90">
+        <StackPanel Margin="76,151,472,90">
             <StackPanel Orientation="Horizontal">
                 <TextBlock Text="Category:" Style="{StaticResource GlobalTextBlockStyle}"/>
                 <Border Width="10"/>
-                <ComboBox Width="156"/>
+                <ComboBox Name="category" Width="156" IsEditable="True" Text="{Binding Category,UpdateSourceTrigger=PropertyChanged}" ItemsSource="{Binding Categories}"/>
             </StackPanel>
             <Border Height="10"/>
 
             <TextBlock Text="Search for word:" Style="{StaticResource GlobalTextBlockStyle}"/>
-            <TextBox Height="30" Background="White" BorderThickness="1"/>
-            <ListView ItemsSource="{Binding Words}"/>
+            <TextBox Name="searchBar" Height="30" Background="White" BorderThickness="1" TextChanged="searchBar_TextChanged"/>
+            <ListView ItemsSource="{Binding Words}" DisplayMemberPath="Value" SelectionChanged="ListView_SelectionChanged" Height="118"/>
         </StackPanel>
 
+        <StackPanel Margin="450,160,150,100">
+            <TextBlock Text="{Binding SelectedWord.Value}" FontSize="20"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Height="33"/>
+            <TextBlock Text="Desctiption:" Style="{StaticResource GlobalTextBlockStyle}"/>
+            <TextBox Text="{Binding SelectedWord.Description}"  HorizontalAlignment="Left" VerticalAlignment="Top" Width="178" Height="63"/>
+            <TextBlock Text="Category:" Style="{StaticResource GlobalTextBlockStyle}"/>
+            <TextBox Text="{Binding SelectedWord.Category}" HorizontalAlignment="Left" VerticalAlignment="Center" Width="178"/>
+        </StackPanel>
+
+        <Image Source="{Binding SelectedWord.ImagePath}" Margin="667,149,29,156"/>
     </Grid>
 </Page>
