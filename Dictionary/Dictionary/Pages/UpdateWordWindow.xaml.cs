@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Win32;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -25,9 +26,31 @@ namespace Dictionary.Pages
             DataContext = dContext;
         }
 
-        private void saveBtn_Click(object sender, RoutedEventArgs e)
+        private void selectImgBtn_Click(object sender, RoutedEventArgs e)
         {
+            string imgPath = (DataContext as WordCollection).SelectedWord.ImagePath;
+            string projectFolderPath = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory);
 
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+
+            openFileDialog.InitialDirectory = projectFolderPath;
+
+            openFileDialog.DefaultExt = ".jpg";
+            openFileDialog.Filter = "Image Files (*.jpg;*.jpeg;*.png;*.gif)|*.jpg;*.jpeg;*.png;*.gif";
+
+            Nullable<bool> result = openFileDialog.ShowDialog();
+
+            if (result == true)
+            {
+                imgPath = openFileDialog.FileName;
+            }
+        }
+
+        private void removeWordBtn_Click(object sender, RoutedEventArgs e)
+        {
+            if ((DataContext as WordCollection).RemoveWord())
+                this.Close();
+            MessageBox.Show("Word could not be removed.");
         }
     }
 }

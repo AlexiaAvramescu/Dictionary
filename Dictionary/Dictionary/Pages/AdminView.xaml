@@ -38,7 +38,7 @@
             </StackPanel>
             <StackPanel Margin="0,130,120,65">
                 <TextBlock Text="Search for word:" Style="{StaticResource GlobalTextBlockStyle}"/>
-                <TextBox Width="200" Height="30" Background="White" BorderThickness="1"/>
+                <TextBox Width="200" Height="30" Background="White" BorderThickness="1" TextChanged="searchBar_TextChanged"/>
                 <Border Height="20"/>
                 <ScrollViewer VerticalScrollBarVisibility="Auto">
                     <ListView ItemsSource="{Binding Words}" DisplayMemberPath="Value" SelectionChanged="ListView_SelectionChanged" MouseDown="ListView_Selected" Height="170"/>

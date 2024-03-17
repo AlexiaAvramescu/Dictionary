@@ -18,6 +18,8 @@ namespace Dictionary
         public ObservableCollection<Word> Words { get; set; }
         public ObservableCollection<String> Categories { get; set; }
 
+        public ObservableCollection<Word> SearchedWords { get; set; }
+
         public Word SelectedWord { get; set; }
 
 
@@ -48,7 +50,10 @@ namespace Dictionary
             }
         }
 
-        public void RemoveWord() { }
+        public bool RemoveWord()
+        {
+            return Words.Remove(SelectedWord);
+        }
 
         public void UpdateWord(string description, string category, string imgPath) 
         {

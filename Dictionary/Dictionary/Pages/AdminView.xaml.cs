@@ -71,5 +71,10 @@ namespace Dictionary.Pages
             UpdateWordWindow updateWindow = new UpdateWordWindow(DataContext);
             updateWindow.ShowDialog();
         }
+
+        private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
