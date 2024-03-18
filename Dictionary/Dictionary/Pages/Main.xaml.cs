@@ -20,9 +20,10 @@ namespace Dictionary.Pages
     /// </summary>
     public partial class Main : Page
     {
-        public Main()
+        public Main(object dContext)
         {
             InitializeComponent();
+            DataContext = dContext;
             AdminLoginPage = new AdminLogin(this.DataContext);
             AdminViewPage = new AdminView(this.DataContext);
             SearchPage = new Search(this.DataContext);

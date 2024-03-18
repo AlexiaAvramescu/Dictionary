@@ -58,7 +58,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Admin.cs" />
     <Compile Include="FileManager.cs" />
+    <Compile Include="GuessGame.cs" />
     <Compile Include="Pages\UpdateWordWindow.xaml.cs">
       <DependentUpon>UpdateWordWindow.xaml</DependentUpon>
     </Compile>
@@ -146,8 +148,5 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup />
-  <ItemGroup>
-    <Resource Include="Images\default-image.jpg" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

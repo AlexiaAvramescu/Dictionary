@@ -34,12 +34,20 @@ namespace Dictionary.Pages
 
         private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (DataContext as WordCollection).SeatchFor(searchBar.Text);
+            (DataContext as WordCollection).SearchFor(searchBar.Text, category.Text);
         }
 
         private void ListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            (DataContext as WordCollection).SelectedWord = (sender as ListBox).SelectedItem as Word;
+            var selectedWord = (DataContext as WordCollection).SelectedWord;
+            selectedWord = (sender as ListBox).SelectedItem as Word;
+
+            if (selectedWord == null) return;
+
+            value.Text = selectedWord.Value;
+            description.Text = selectedWord.Description;
+            wordCategory.Text = selectedWord.Category;
+            image.Source = new BitmapImage(new Uri(selectedWord.ImagePath));
         }
     }
 }

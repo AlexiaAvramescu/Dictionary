@@ -1,6 +1,7 @@
 ﻿using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -45,6 +46,35 @@ namespace Dictionary.Pages
             if (result == true)
             {
                 ImageSelected = openFileDialog.FileName;
+
+                try
+                {
+                    // local path to resources of project
+                    string resourcesDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
+
+                    // if it doesn't exist then it gets created
+                    if (!Directory.Exists(resourcesDirectory))
+                    {
+                        Directory.CreateDirectory(resourcesDirectory);
+                    }
+
+                    // name of folder from absolute path
+                    string fileName = System.IO.Path.GetFileName(ImageSelected);
+
+                    // new path to local path
+                    string destinationFilePath = System.IO.Path.Combine(resourcesDirectory, fileName);
+
+                    // copy image to local path
+                    File.Copy(ImageSelected, destinationFilePath, true);
+
+                    string relativePath = System.IO.Path.Combine("Resources", fileName);
+                    imagePath.Text = relativePath;
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show("Eroare la selectarea imaginii: " + ex.Message);
+                }
+
             }
         }
 
@@ -58,6 +88,7 @@ namespace Dictionary.Pages
 
         private void BackArrowBtn_Click(object sender, RoutedEventArgs e)
         {
+            FileManager.saveToFile(DataContext as WordCollection);
             ((MainWindow)Application.Current.MainWindow).MainFrame.GoBack();
         }
 
@@ -74,7 +105,7 @@ namespace Dictionary.Pages
 
         private void searchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
-            (DataContext as WordCollection).SeatchFor(searchBar.Text);
+            (DataContext as WordCollection).SearchFor(searchBar.Text, "");
         }
     }
 }

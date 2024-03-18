@@ -36,6 +36,7 @@
                     <Border Width="80"/>
                     <Button Content="Add Word" Width="120" Height="30" Click="AddWordBtn_Click"/>
                 </StackPanel>
+                <TextBlock Name="imagePath" Height="18" HorizontalAlignment="Center"/>
             </StackPanel>
             <StackPanel Margin="0,130,120,65">
                 <TextBlock Text="Search for word:" Style="{StaticResource GlobalTextBlockStyle}"/>

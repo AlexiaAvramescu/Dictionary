@@ -28,7 +28,9 @@ namespace Dictionary.Pages
 
         private void loginBtn_Click(object sender, RoutedEventArgs e)
         {
-            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminView(this.DataContext));
+            if ((DataContext as WordCollection).Verify(UsernameTextBox.Text, PasswordBox.Password))
+                ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new AdminView(this.DataContext));
+            else MessageBox.Show("Incorrect.");
         }
 
         private void button_Click(object sender, RoutedEventArgs e)

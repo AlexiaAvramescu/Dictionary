@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Dictionary.Pages;
 
 namespace Dictionary
 {
@@ -23,6 +24,8 @@ namespace Dictionary
         public MainWindow()
         {
             InitializeComponent();
+            DataContext = FileManager.loadFromFile();
+            ((MainWindow)Application.Current.MainWindow).MainFrame.Navigate(new Main(this.DataContext));
         }
 
     }

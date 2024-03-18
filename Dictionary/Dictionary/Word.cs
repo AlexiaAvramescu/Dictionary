@@ -71,5 +71,10 @@ namespace Dictionary
         {
             return value == this.Value;
         }
+
+        public override string ToString()
+        {
+            return Value;
+        }
     }
 }

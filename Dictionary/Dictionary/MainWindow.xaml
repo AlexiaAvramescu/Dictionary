@@ -7,6 +7,9 @@
         xmlns:Directory="clr-namespace:Dictionary"
         mc:Ignorable="d"
         Title="MainWindow" Height="500" Width="900">
+    <Window.DataContext>
+        <local:WordCollection/>
+    </Window.DataContext>
     <Grid Background="Black">
         <Frame x:Name="MainFrame" Source="/Pages/Main.xaml" NavigationUIVisibility="Hidden"/>
     </Grid>

@@ -14,7 +14,7 @@ namespace Dictionary
             Words = new ObservableCollection<Word>();
             Categories = new ObservableCollection<String>();
             SearchedWords = new ObservableCollection<Word>();
-            _defaultImg = "..\\..\\Image\\default-image.jpg";
+            _defaultImg = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources\\default-image.jpg");
         }
 
         public ObservableCollection<Word> Words { get; set; }
@@ -24,7 +24,13 @@ namespace Dictionary
             set;
         }
         public ObservableCollection<Word> SearchedWords { get; set; }
-        public Word SelectedWord { get; set; }
+        public Word SelectedWord
+        {
+            get;
+            set;
+        }
+
+        public List<Admin> Admins { get; set; }
 
         private string _defaultImg;
 
@@ -63,15 +69,28 @@ namespace Dictionary
             return Words.Remove(SelectedWord);
         }
 
-        public void SeatchFor(string word)
+        public void SearchFor(string word, string category)
         {
             if (!ValidateInput(word)) return;
             SearchedWords.Clear();
             var foundWords = Words.Where(item => item.Value.StartsWith(word, StringComparison.OrdinalIgnoreCase));
+
+            if(!string.IsNullOrEmpty(category)) 
+            {
+                foundWords = foundWords.Where(item=> item.Category.Equals(category));
+            }
+
             foreach (var item in foundWords)
             {
-                SearchedWords.Add(item);
+               SearchedWords.Add(item);
             }
+        }
+
+        public bool Verify(string username, string password)
+        {
+            if (username == "asd" && password == "asd")
+                return true;
+            return false;
         }
     }
 }

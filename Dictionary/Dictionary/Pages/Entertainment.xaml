@@ -14,15 +14,13 @@
         <TextBlock Text="Guess the word!" Style="{StaticResource ResourceKey=HeaderTextBlockStyle}" HorizontalAlignment="Center" VerticalAlignment="Top" Margin="0,56,0,0"/>
 
         <StackPanel Margin="260,131,260,64">
-            <TextBlock Text="{Binding WordToGuess.Description}" />
-            <Image Source="..\..\Images\default-image.jpg" Height="150" Width="150"/>
+            <TextBlock Name="description" Text="{Binding WordToGuess.Description}" />
+            <Image Name="image" Source="Resources\\default-image.jpg" Height="150" Width="150"/>
             <TextBlock Text="Your guess:" Style="{StaticResource GlobalTextBlockStyle}"/>
-            <TextBox />
+            <TextBox Name="guess"/>
             <Border Height="10"/>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <Button Content="Previous" HorizontalAlignment="Left" VerticalAlignment="Top" Width="120" Height="30" />
-                <Border Width="80"/>
-                <Button Content="Next" Width="120" Height="30" Click="nextBtn_Click"/>
+                <Button Name="nextBtn" Content="Next" Width="120" Height="30" Click="nextBtn_Click"/>
             </StackPanel>
         </StackPanel>
 
