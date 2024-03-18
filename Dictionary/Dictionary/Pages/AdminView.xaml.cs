@@ -49,22 +49,17 @@ namespace Dictionary.Pages
 
                 try
                 {
-                    // local path to resources of project
                     string resourcesDirectory = System.IO.Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Resources");
 
-                    // if it doesn't exist then it gets created
                     if (!Directory.Exists(resourcesDirectory))
                     {
                         Directory.CreateDirectory(resourcesDirectory);
                     }
 
-                    // name of folder from absolute path
                     string fileName = System.IO.Path.GetFileName(ImageSelected);
 
-                    // new path to local path
                     string destinationFilePath = System.IO.Path.Combine(resourcesDirectory, fileName);
 
-                    // copy image to local path
                     File.Copy(ImageSelected, destinationFilePath, true);
 
                     string relativePath = System.IO.Path.Combine("Resources", fileName);
